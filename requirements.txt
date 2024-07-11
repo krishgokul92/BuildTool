@@ -8,7 +8,6 @@ numpy
 torchvision
 torchaudio
 requests
-torch==1.13.1
 Pillow
 gradio
 langchain
