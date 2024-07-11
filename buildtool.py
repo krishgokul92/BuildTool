@@ -17,7 +17,7 @@ def load_sdxl_pipeline():
     unet = UNet2DConditionModel.from_config(base, subfolder="unet").to("cuda", torch.float16)
     unet.load_state_dict(load_file(hf_hub_download(repo, ckpt), device="cuda"))
     pipe = StableDiffusionXLPipeline.from_pretrained(base, unet=unet, torch_dtype=torch.float16, variant="fp16").to("cuda")
-    pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config, timestep_spacing="trailing")
+    #pipe.scheduler = EulerDiscreteScheduler.from_config(pipe.scheduler.config, timestep_spacing="trailing")
     return pipe
 
 # Streamlit UI
